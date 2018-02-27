@@ -28,7 +28,7 @@ app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 // CLIENT_URL=http://localhost:8080
 
 // Mac:
-// DATABASE_URL=postgres://localhost:5432/task_app
+// DATABASE_URL=postgres://localhost:5432/book_app
 
 // Windows:
-// DATABASE_URL=postgres://USER:PASSWORD@localhost:5432/task_app
+// DATABASE_URL=postgres://USER:PASSWORD@localhost:5432/book_app
