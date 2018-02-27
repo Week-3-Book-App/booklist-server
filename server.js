@@ -15,6 +15,12 @@ app.use(cors());
 
 app.get('/', (req, res) => res.send('Testing 1, 2, 3'));
 
+app.get('/books', (req, res) => {
+  client.query(`SELECT * from books;`)
+    .then(results => res.send(results.rows))
+    .catch(console.error);
+});
+
 app.get('*', (req, res) => res.redirect(CLIENT_URL));
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
