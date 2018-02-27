@@ -13,8 +13,8 @@ client.connect();
 
 app.use(cors());
 
-app.get('/books', (req, res) => {
-  client.query(`SELECT * from books;`)
+app.get('/api/v1/books', (req, res) => {
+  client.query(`SELECT book_id, title, author, image_url FROM books;`)
     .then(results => res.send(results.rows))
     .catch(console.error);
 });
