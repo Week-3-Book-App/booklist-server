@@ -13,8 +13,6 @@ client.connect();
 
 app.use(cors());
 
-app.get('/', (req, res) => res.send('Testing 1, 2, 3'));
-
 app.get('/books', (req, res) => {
   client.query(`SELECT * from books;`)
     .then(results => res.send(results.rows))
@@ -28,7 +26,7 @@ app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 // CLIENT_URL=http://localhost:8080
 
 // Mac:
-// DATABASE_URL=postgres://localhost:5432/task_app
+// DATABASE_URL=postgres://localhost:5432/book_app
 
 // Windows:
-// DATABASE_URL=postgres://USER:PASSWORD@localhost:5432/task_app
+// DATABASE_URL=postgres://USER:PASSWORD@localhost:5432/book_app
