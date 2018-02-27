@@ -1,0 +1,25 @@
+{
+  "name": "booklist-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Week-3-Book-App/booklist-server.git"
+  },
+  "author": "Austin Matteson + Jose Flores",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Week-3-Book-App/booklist-server/issues"
+  },
+  "homepage": "https://github.com/Week-3-Book-App/booklist-server#readme",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "pg": "^7.4.1"
+  }
+}
