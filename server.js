@@ -27,6 +27,8 @@ app.get('/api/v1/books/:id', (req, res) => {
     .catch(console.error);
 })
 
+app.get('*', (req, res) => res.redirect(CLIENT_URL));
+
 app.post('/api/v1/books', bodyParser, (req, res) => {
   let {title, author, image_url, isbn, description} = req.body;
 
@@ -34,10 +36,13 @@ app.post('/api/v1/books', bodyParser, (req, res) => {
     VALUES ($1, $2, $3, $4, $5);`, [title, author, image_url, isbn, description])
     .then(() => res.sendStatus(201))
     .catch(console.error);
-
 });
 
-app.get('*', (req, res) => res.redirect(CLIENT_URL));
+app.delete('/api/v1/books/:id', (req, res) => {
+  client.query(`DELETE FROM books WHERE book_id=${req.params.id};`)
+    .then(() => res.sendStatus(204))
+    .catch(console.error);
+});
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
