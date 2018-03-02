@@ -38,14 +38,14 @@ app.post('/api/v1/books', bodyParser, (req, res) => {
     .catch(console.error);
 });
 
-app.put('/api/v1/books/:id', (req, res) => {
+app.put('/api/v1/books/:id', bodyParser, (req, res) => {
   let {title, author, image_url, isbn, description} = req.body;
 
   client.query(`UPDATE books 
-  SET title=$1, author=$2 image_url=$3, isbn=$4, description=$5
-  WHERE author_id=$6;`,
+  SET title=$1, author=$2, image_url=$3, isbn=$4, description=$5
+  WHERE book_id=$6;`,
   [title, author, image_url, isbn, description, req.params.id])
-    .then(() => res.sendStatus(201))
+    .then(() => res.sendStatus(204))
     .catch(console.error);
 });
 
